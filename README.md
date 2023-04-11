@@ -1,4 +1,4 @@
-![alt text](https://github.com/protoxyz/starter-basic/blob/main/ss.jpg?raw=true)
+![alt text](https://github.com/protoxyz/starter-basic/blob/main/ss.png?raw=true)
 
 # Protocol Starter
 
