@@ -26,6 +26,10 @@ async function main() {
     })
   );
 
+  app.use("/health", (req, res) => {
+    res.json({ status: "ok" });
+  });
+
   app.use(
     "/trpc",
 

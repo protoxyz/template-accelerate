@@ -4,10 +4,13 @@ import Link from "next/link";
 import { Inputs, trpc } from "../lib/trpc";
 
 export default function PostsList() {
-  const postsQuery = trpc.posts.list.useQuery();
+  const postsQuery = trpc.posts.list.useQuery({});
 
   return (
-    <ul role="list" className="divide-y divide-gray-200 mt-5">
+    <ul
+      role="list"
+      className="divide-y divide-gray-100 mt-5 rounded-lg overflow-hidden"
+    >
       {postsQuery.data?.map((post) => (
         <li
           key={post.id}
@@ -21,12 +24,14 @@ export default function PostsList() {
                   <p className="truncate text-sm font-medium text-gray-900">
                     {/* {post.sender} */}
                   </p>
-                  <p className="truncate text-sm text-gray-500">{post.title}</p>
+                  <p className="truncate text-sm text-gray-900 font-semibold">
+                    {post.title}
+                  </p>
                 </a>
               </div>
               <time
                 dateTime={post.createdAt.toLocaleString()}
-                className="flex-shrink-0 whitespace-nowrap text-sm text-gray-500"
+                className="flex-shrink-0 whitespace-nowrap text-sm text-gray-300"
               >
                 {post.createdAt.toLocaleString()}
               </time>

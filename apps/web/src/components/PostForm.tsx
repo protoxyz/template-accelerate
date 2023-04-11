@@ -38,7 +38,7 @@ export default function PostTextArea() {
           Content
         </label>
         <textarea
-          rows={8}
+          rows={4}
           name="content"
           id="content"
           className="block w-full resize-none px-2.5 border-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"

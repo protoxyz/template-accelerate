@@ -20,6 +20,10 @@ This turborepo uses [pnpm](https://pnpm.io) as a package manager. It includes th
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
+### API
+
+The api app is a simple [ExpressJS](https://expressjs.com/) app that uses [Prisma](https://www.prisma.io) to connect to a PostgreSQL database. It also uses [TRPC](https://trpc.io) and exposes a REST API.
+
 ### Utilities
 
 This turborepo has some additional tools already setup for you:
@@ -45,3 +49,12 @@ To develop all apps and packages, run the following command:
 cd pxyz-starter-basic
 pnpm run dev
 ```
+
+### URLS
+
+- `api`: http://localhost:4000
+- `api:rest`: http://localhost:4000/api
+- `api:trpc`: http://localhost:4000/trpc
+- `api:docs`: http://localhost:4000/docs
+- `api:openapi.json`: http://localhost:4000/openapi.json
+- `web`: http://localhost:3000

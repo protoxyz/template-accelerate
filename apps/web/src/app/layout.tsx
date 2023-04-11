@@ -8,7 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <TrpcProvider>
       <html>
         <head>{/* snip */}</head>
-        <body>
+        <body className="bg-zinc-50">
           <header>
             <div className="mx-auto max-w-2xl py-5">
               <Link href="/">
