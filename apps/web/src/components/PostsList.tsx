@@ -19,15 +19,13 @@ export default function PostsList() {
           <Link href={`/posts/${post.id}`}>
             <div className="flex justify-between space-x-3">
               <div className="min-w-0 flex-1">
-                <a href="#" className="block focus:outline-none">
-                  <span className="absolute inset-0" aria-hidden="true" />
-                  <p className="truncate text-sm font-medium text-gray-900">
-                    {/* {post.sender} */}
-                  </p>
-                  <p className="truncate text-sm text-gray-900 font-semibold">
-                    {post.title}
-                  </p>
-                </a>
+                <span className="absolute inset-0" aria-hidden="true" />
+                <p className="truncate text-sm font-medium text-gray-900">
+                  {/* {post.sender} */}
+                </p>
+                <p className="truncate text-sm text-gray-900 font-semibold">
+                  {post.title}
+                </p>
               </div>
               <time
                 dateTime={post.createdAt.toLocaleString()}

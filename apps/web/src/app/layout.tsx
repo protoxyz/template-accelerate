@@ -7,7 +7,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <TrpcProvider>
       <html>
-        <head>{/* snip */}</head>
+        <head>
+          <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+        </head>
         <body className="bg-zinc-50">
           <header>
             <div className="mx-auto max-w-2xl py-5">
