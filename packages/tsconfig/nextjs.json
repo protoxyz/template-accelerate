@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Next.js",
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "baseUrl": "./src",
+    "sourceRoot": "/",
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "incremental": true
+  },
+  "exclude": [
+    "node_modules",
+    ".yarn",
+    ".next",
+    "out",
+    "build",
+    "**/*.test.ts*"
+  ],
+  "include": ["next-env.d.ts", "src/**/*", "src/*", "index.d.ts"]
+}
