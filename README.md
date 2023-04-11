@@ -1,8 +1,8 @@
+# Protocol Starter Basic
+
+This is an official Protocol starter turborepo, containing an API, a web app, and a database.
+
 ![alt text](https://github.com/protoxyz/starter-basic/blob/main/ss.png?raw=true)
-
-# Protocol Starter
-
-This is an official Protocol starter turborepo.
 
 ## What's inside?
 
