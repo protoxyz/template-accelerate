@@ -1,9 +1,9 @@
-import EditPostCard from "../../../../components/EditPostCard";
+import PostForm from "../../../../components/PostForm";
 
 export default function Page({ params }) {
   return (
     <>
-      <EditPostCard id={params.postId} />
+      <PostForm id={params.postId} />
     </>
   );
 }
