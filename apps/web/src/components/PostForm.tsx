@@ -51,7 +51,7 @@ export default function PostForm({ id }: { id?: string }) {
 
   return (
     <form onSubmit={id ? updatePost : createPost} className="relative mt-5">
-      <div className="overflow-hidden rounded-lg border border-gray-300 shadow-sm focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
+      <div className="overflow-hidden rounded-lg border border-gray-100 shadow-sm focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
         <label htmlFor="title" className="sr-only">
           Title
         </label>
@@ -75,18 +75,18 @@ export default function PostForm({ id }: { id?: string }) {
           defaultValue={postQuery.data?.content}
         />
 
-        <div className="mb-14" />
+        <div className="mb-12" />
       </div>
 
-      <div className="absolute inset-x-px bottom-0 bg-white">
+      <div className="absolute inset-x-px bottom-0 bg-white border-t overflow-hidden  rounded-bl-lg rounded-br-lg border-gray-100">
         {/* Actions: These are just examples to demonstrate the concept, replace/wire these up however makes sense for your project. */}
 
-        <div className="flex items-center justify-between space-x-3 border-t border-gray-200 px-2 py-2 sm:px-3">
+        <div className="flex items-center justify-between space-x-3 px-2 py-2 sm:px-3">
           <div className="flex"></div>
           <div className="flex-shrink-0">
             <button
               type="submit"
-              className="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="inline-flex items-center rounded-lg bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               {id ? "Update" : "Create"} Post
             </button>
