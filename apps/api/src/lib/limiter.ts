@@ -1,7 +1,12 @@
 import rateLimit from "express-rate-limit";
 import { isProduction } from "./environment.js";
 
-export function createApiLimiter(props) {
+export function createApiLimiter(props?: {
+  windowMs?: number;
+  max?: number;
+  standardHeaders?: boolean;
+  legacyHeaders?: boolean;
+}) {
   const defaultWindowMs = isProduction ? 3 * 60 * 1000 : 3 * 60 * 1000 * 1000; // 3 mins
   const defaultMax = isProduction ? 100 : 10000; // 100 requests per 3 mins
 

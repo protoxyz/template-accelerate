@@ -13,13 +13,15 @@ const PostObject = z.object({
 export default router({
   list: publicProcedure
     .meta({
-      summary: "List all posts",
-      description: "List all posts",
-      method: "GET",
-      path: "/posts",
-      tags: ["Post"],
+      openapi: {
+        summary: "List all posts",
+        description: "List all posts",
+        method: "GET",
+        path: "/posts",
+        tags: ["Post"],
+      },
     })
-    .input(z.undefined())
+    .input(z.object({}))
     .output(z.array(PostObject))
     .query(async ({}) => {
       return await p.post.findMany();
@@ -27,11 +29,13 @@ export default router({
 
   get: publicProcedure
     .meta({
-      summary: "Get a post",
-      description: "Get a post",
-      method: "GET",
-      path: "/posts/{id}",
-      tags: ["Post"],
+      openapi: {
+        summary: "Get a post",
+        description: "Get a post",
+        method: "GET",
+        path: "/posts/{id}",
+        tags: ["Post"],
+      },
     })
     .input(
       z.object({
@@ -50,11 +54,13 @@ export default router({
 
   create: publicProcedure
     .meta({
-      summary: "Create a new post",
-      description: "Create a new post",
-      method: "POST",
-      path: "/posts",
-      tags: ["Post"],
+      openapi: {
+        summary: "Create a new post",
+        description: "Create a new post",
+        method: "POST",
+        path: "/posts",
+        tags: ["Post"],
+      },
     })
     .input(
       z.object({
@@ -75,11 +81,13 @@ export default router({
 
   update: publicProcedure
     .meta({
-      summary: "Update a post",
-      description: "Update a post",
-      method: "PUT",
-      path: "/posts/{id}",
-      tags: ["Post"],
+      openapi: {
+        summary: "Update a post",
+        description: "Update a post",
+        method: "PUT",
+        path: "/posts/{id}",
+        tags: ["Post"],
+      },
     })
     .input(
       z.object({
@@ -104,11 +112,13 @@ export default router({
 
   delete: publicProcedure
     .meta({
-      summary: "Delete a post",
-      description: "Delete a post",
-      method: "DELETE",
-      path: "/posts/{id}",
-      tags: ["Post"],
+      openapi: {
+        summary: "Delete a post",
+        description: "Delete a post",
+        method: "DELETE",
+        path: "/posts/{id}",
+        tags: ["Post"],
+      },
     })
     .input(
       z.object({

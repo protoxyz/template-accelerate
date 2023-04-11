@@ -13,9 +13,7 @@ import appRouter from "./routers/_app";
 import { createContext } from "./lib/trpc";
 
 export type AppRouter = typeof appRouter;
-// import { createApiLimiter } from "./lib/limiter";
-// import appRouter from "./runtime/router";
-// import { createTRPCContext } from "./runtime/trpc";
+import { createApiLimiter } from "./lib/limiter";
 
 async function main() {
   const app: Express = express();
@@ -37,40 +35,36 @@ async function main() {
     })
   );
 
-  // app.use(
-  //   "/api",
-  //   createApiLimiter(),
-  //   express.json(),
-  //   cors({
-  //     origin: true,
-  //     credentials: true,
-  //   }),
-  //   createOpenApiExpressMiddleware({
-  //     router: appRouter,
-  //     createContext,
-  //   } as any)
-  // );
+  app.use(
+    "/api",
+    createApiLimiter(),
+    express.json(),
+    cors({
+      origin: true,
+      credentials: true,
+    }),
+    createOpenApiExpressMiddleware({
+      router: appRouter,
+      createContext,
+    })
+  );
 
-  // // Set up Swagger documentation
-  // const openApiOptions = {
-  //   title: "Custom Backend Framework API",
-  //   description: "Custom Backend Framework API",
-  //   version: "1.0.0",
-  //   baseUrl: `http://localhost:${port}`,
-  // };
+  // Set up Swagger documentation
+  const openApiOptions = {
+    title: "Protocol Starter Kit API",
+    description: "REST API for Protocol Starter Kit",
+    version: "1.0.0",
+    baseUrl: `http://localhost:${port}/api`,
+  };
 
-  // const openApiDocument = generateOpenApiDocument(
-  //   appRouter as any,
-  //   openApiOptions
-  // );
+  const openApiDocument = generateOpenApiDocument(appRouter, openApiOptions);
 
-  // // if (process.env.SERVE_SWAGGER) {
-
-  // app.use("/docs", swaggerUi.serve, (...args: any) =>
-  //   //@ts-ignore
-  //   swaggerUi.setup(openApiDocument)(...args)
-  // );
-
+  // if (process.env.SERVE_SWAGGER) {
+  app.use("/docs", swaggerUi.serve, (...args: any) =>
+    //@ts-ignore
+    swaggerUi.setup(openApiDocument)(...args)
+  );
+  app.use("/openapi.json", (req, res) => res.json(openApiDocument));
   // }
 
   app.listen(port, () => {
