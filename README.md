@@ -1,3 +1,5 @@
+![alt text](https://github.com/protoxyz/starter-basic/blob/main/ss.jpg?raw=true)
+
 # Protocol Starter
 
 This is an official Protocol starter turborepo.
