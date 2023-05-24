@@ -1,16 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { Inputs, trpc } from "../lib/trpc";
+import { trpc } from "../lib/trpc";
 
 export default function PostsList() {
   const postsQuery = trpc.posts.list.useQuery({});
+
+  if (postsQuery.isLoading) return null;
+  if (postsQuery.isError) {
+    return <div>{postsQuery.error.message}</div>;
+  }
 
   return (
     <ul
       role="list"
       className="divide-y divide-gray-100 mt-5 rounded-lg overflow-hidden"
     >
+      {postsQuery.data.length === 0 && <>There are no posts yet.</>}
       {postsQuery.data?.map((post) => (
         <li
           key={post.id}

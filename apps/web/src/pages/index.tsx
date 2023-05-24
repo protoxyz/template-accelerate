@@ -1,7 +1,8 @@
+import Layout from "../components/Layout";
 import PostForm from "../components/PostForm";
 import PostsList from "../components/PostsList";
 
-export default function Page() {
+function Page() {
   return (
     <>
       <PostForm />
@@ -9,3 +10,9 @@ export default function Page() {
     </>
   );
 }
+
+Page.getLayout = (page: any) => {
+  return <Layout>{page}</Layout>;
+};
+
+export default Page;
