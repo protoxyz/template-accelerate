@@ -26,7 +26,11 @@ async function main() {
     })
   );
 
-  app.use("/health", (req, res) => {
+  app.get("/health", (req, res) => {
+    res.json({ status: "ok" });
+  });
+
+  app.get("/", (req, res) => {
     res.json({ status: "ok" });
   });
 
@@ -68,7 +72,7 @@ async function main() {
     //@ts-ignore
     swaggerUi.setup(openApiDocument)(...args)
   );
-  app.use("/openapi.json", (req, res) => res.json(openApiDocument));
+  app.get("/openapi.json", (req, res) => res.json(openApiDocument));
   // }
 
   app.listen(port, "0.0.0.0", () => {
