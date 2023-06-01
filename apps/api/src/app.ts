@@ -17,7 +17,7 @@ import { createApiLimiter } from "./lib/limiter";
 
 async function main() {
   const app: Express = express();
-  const port = process.env.PORT || 4000;
+  const port = parseInt(process.env.PORT ?? "4000");
 
   app.use(
     cors({
@@ -55,8 +55,8 @@ async function main() {
 
   // Set up Swagger documentation
   const openApiOptions = {
-    title: "Protocol Starter Kit API",
-    description: "REST API for Protocol Starter Kit",
+    title: "Protocol Accelerate Template API",
+    description: "REST API for Protocol Accelerate Template API",
     version: "1.0.0",
     baseUrl: `http://localhost:${port}/api`,
   };
@@ -71,8 +71,8 @@ async function main() {
   app.use("/openapi.json", (req, res) => res.json(openApiDocument));
   // }
 
-  app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
+  app.listen(port, "0.0.0.0", () => {
+    console.log(`Server running on port ${port}`);
   });
 }
 

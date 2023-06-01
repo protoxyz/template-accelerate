@@ -1,4 +1,4 @@
-# Protocol Starter Basic
+# Protocol Accelerate Template
 
 This is an official Protocol starter turborepo, containing an API, a web app, and a database.
 
