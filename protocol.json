@@ -6,7 +6,7 @@
     "services": [
       {
         "name": "my-api",
-        "type": "web_service",
+        "type": "web_server",
         "config": {
           "port": 4000,
           "cpu": 256,
