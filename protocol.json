@@ -1,7 +1,7 @@
 {
   "stack": {
     "name": "my-stack",
-    "region": "us-east-1",
+    "region": "virginia",
 
     "services": [
       {
