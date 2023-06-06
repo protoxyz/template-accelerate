@@ -1,0 +1,64 @@
+{
+  "stack": {
+    "name": "my-stack",
+    "region": "us-east-1",
+
+    "services": [
+      {
+        "name": "my-api",
+        "type": "web_service",
+        "config": {
+          "port": 4000,
+          "cpu": 256,
+          "memory": 512,
+          "desiredCount": 1,
+          "minCapacity": 1,
+          "maxCapacity": 2,
+          "cpuScalingTargetPercent": 50,
+          "cpuScalingCooldownIn": 60,
+          "cpuScalingCooldownOut": 60,
+          "memoryScalingTargetPercent": 50,
+          "memoryScalingCooldownIn": 60,
+          "memoryScalingCooldownOut": 60,
+          "healthCheck": {
+            "path": "/health",
+            "interval": 30,
+            "timeout": 5,
+            "healthyThreshold": 5,
+            "unhealthyThreshold": 2
+          }
+        },
+        "buildConfig": {
+          "platform": "node_18",
+          "branch": "main",
+          "rootPath": "apps/api",
+          "installCommand": "pnpm install",
+          "buildCommand": "turbo run build --filter=\"./apps/api\"",
+          "startCommand": "node ./apps/api/dist/index.js",
+          "turboScope": "api"
+        },
+        "environment": [
+          {
+            "key": "DATABASE_URL",
+            "valueFrom": "my-db"
+          }
+        ]
+      }
+    ],
+
+    "resources": [
+      {
+        "name": "my-db",
+        "type": "database_postgres",
+        "config": {
+          "engineVersion": "15.2",
+          "instanceType": "db.t2.micro",
+          "multiAz": false,
+          "storageType": "gp2",
+          "allocatedStorage": 20,
+          "isPublic": false
+        }
+      }
+    ]
+  }
+}
