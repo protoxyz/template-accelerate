@@ -52,7 +52,7 @@
         "type": "database_postgres",
         "config": {
           "engineVersion": "15.2",
-          "instanceType": "db.t2.micro",
+          "instanceType": "t3.micro",
           "multiAz": false,
           "storageType": "gp2",
           "allocatedStorage": 20,
